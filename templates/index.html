@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Language Word Detector</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+    <header class="header">
+
+        <h1>🤟 Sign Language Word Detector</h1>
+
+        <p>
+            Real-Time Hand Gesture Recognition System
+        </p>
+
+    </header>
+
+
+    <main class="container">
+
+
+        <section class="camera-card">
+
+            <div class="section-title">
+
+                <h2>📷 Live Camera</h2>
+
+                <span class="status">
+
+                    <span class="status-dot"></span>
+
+                    Camera Ready
+
+                </span>
+
+            </div>
+
+
+            <div class="camera">
+
+                <video id="video"
+                       autoplay
+                       playsinline>
+                </video>
+
+                <canvas id="canvas"></canvas>
+
+
+                <div class="camera-message"
+                     id="cameraMessage">
+
+                    Position your hand inside
+                    the camera
+
+                </div>
+
+            </div>
+
+
+            <div class="camera-buttons">
+
+                <button class="start-btn"
+                        onclick="startCamera()">
+
+                    ▶ Start Camera
+
+                </button>
+
+
+                <button class="stop-btn"
+                        onclick="stopCamera()">
+
+                    ■ Stop Camera
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <section class="result-card">
+
+            <h2>🔍 Detected Word</h2>
+
+
+            <div id="word"
+                 class="word">
+
+                Waiting...
+
+            </div>
+
+
+            <div class="confidence-box">
+
+                <div class="confidence-header">
+
+                    <span>
+                        Confidence
+                    </span>
+
+                    <span id="confidence">
+                        0%
+                    </span>
+
+                </div>
+
+
+                <div class="progress-container">
+
+                    <div id="confidenceBar"
+                         class="progress-bar">
+                    </div>
+            
+
+                </div>
+
+            </div>
+
+
+            <div class="hand-status-box">
+
+                <span id="handStatus">
+
+                    🔴 No hand detected
+
+                </span>
+
+            </div>
+
+            <div class="speaker-section">
+
+                <h3>🔊 Speaker</h3>
+
+                <p>
+                    Click the button to hear
+                    the detected word.
+                </p>
+
+
+                <button class="speak-btn"
+                        onclick="speakDetectedWord()">
+
+                    🔊 Speak Word
+
+                </button>
+
+            </div>
+            <button class="clear-btn"
+                    onclick="clearResult()">
+
+                🗑 Clear Result
+
+            </button>
+
+        </section>
+
+
+        <section class="instructions">
+
+            <h2 style="border:4px solid #2563eb;">📖 How To Use ?</h2>
+
+
+            <div class="steps">
+
+
+                <div class="step">
+
+                    <span>1</span>
+
+                    <p>
+                        Start the camera
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <span>2</span>
+
+                    <p>
+                        Show your hand gesture
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <span>3</span>
+
+                    <p>
+                        Keep your hand inside
+                        the frame
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <span>4</span>
+
+                    <p>
+                        Wait for the detected word
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <span>5</span>
+
+                    <p>
+                        Click 🔊 Speak Word
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+
+            Sign Language Word Detector |
+
+             Hand Gesture Recognition
+
+        </p>
+
+    </footer>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}">
+    </script>
+
+</body>
+
+</html>

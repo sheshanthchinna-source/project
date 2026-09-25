@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dfafa50e-b842-40a7-b7d0-133802a5b2d0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/collect_data.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/0.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/1.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/10.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/11.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/12.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/13.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/14.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/15.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/16.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/17.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/18.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/19.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/2.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/20.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/21.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/22.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/23.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/24.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/25.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/26.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/27.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/28.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/29.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/3.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/30.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/31.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/32.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/33.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/34.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/35.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/36.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/37.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/38.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/39.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/4.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/5.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/6.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/7.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/8.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELLO/9.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/0.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/1.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/10.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/11.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/12.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/13.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/14.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/15.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/16.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/17.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/18.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/19.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/2.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/20.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/21.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/22.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/23.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/24.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/25.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/26.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/27.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/28.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/29.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/3.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/30.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/31.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/32.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/33.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/34.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/35.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/36.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/37.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/38.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/39.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/4.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/5.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/6.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/7.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/8.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/HELP/9.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/0.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/1.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/10.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/11.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/12.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/13.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/14.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/15.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/16.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/17.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/18.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/19.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/2.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/20.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/21.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/22.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/23.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/24.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/25.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/26.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/27.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/28.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/29.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/3.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/30.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/31.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/32.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/33.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/34.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/35.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/36.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/37.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/38.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/39.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/4.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/5.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/6.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/7.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/8.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/NO/9.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/0.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/1.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/10.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/11.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/12.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/13.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/14.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/15.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/16.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/17.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/18.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/19.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/2.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/20.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/21.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/22.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/23.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/24.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/25.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/26.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/27.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/28.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/29.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/3.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/30.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/31.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/32.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/33.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/34.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/35.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/36.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/37.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/38.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/39.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/4.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/5.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/6.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/7.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/8.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/THANK_YOU/9.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/0.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/1.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/10.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/11.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/12.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/13.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/14.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/15.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/16.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/17.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/18.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/19.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/2.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/20.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/21.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/22.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/23.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/24.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/25.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/26.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/27.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/28.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/29.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/3.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/30.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/31.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/32.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/33.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/34.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/35.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/36.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/37.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/38.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/39.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/4.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/5.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/6.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/7.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/8.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataset/YES/9.npy" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/sign_model.keras" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/train_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="3I0Wn9frU3ONb6abkb78aiQCIQw" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;Python.collect_data.executor&quot;: &quot;Run&quot;,
+    &quot;Python.train_model.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Rebasing main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/PythonProject/templates&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\PythonProject\templates" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-50341a9f1f9c-c2ffad84badb-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.26222.68" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dfafa50e-b842-40a7-b7d0-133802a5b2d0" name="Changes" comment="" />
+      <created>1786902132613</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1786902132613</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
