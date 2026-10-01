@@ -2,6 +2,7 @@ let stream = null;
 let predictionInterval = null;
 
 let detectedWord = "Unknown";
+let busy = false; // prevents overlapping requests (frames arriving out of order)
 
 
 const video =
@@ -42,11 +43,8 @@ async function startCamera() {
 
         video.onloadedmetadata = () => {
 
-            canvas.width =
-                video.videoWidth;
-
-            canvas.height =
-                video.videoHeight;
+            canvas.width = 320;   // small frames = faster upload + decode
+            canvas.height = 240;
 
 
             // Send frames to Flask
@@ -54,7 +52,7 @@ async function startCamera() {
             predictionInterval =
                 setInterval(
                     sendFrame,
-                    150
+                    100
                 );
 
         };
@@ -82,6 +80,7 @@ async function sendFrame() {
 
     if (
         !stream ||
+        busy ||
         video.readyState !== 4
     ) {
 
@@ -106,6 +105,7 @@ async function sendFrame() {
         );
 
 
+    busy = true;
     try {
 
         const response =
@@ -134,6 +134,10 @@ async function sendFrame() {
 
         const result =
             await response.json();
+        if (result.error) return;
+        if (result.skipped) {  // server skipped model run; keep UI as is
+            return;
+        }
 
 
         detectedWord =
@@ -198,6 +202,9 @@ async function sendFrame() {
             error
         );
 
+    }
+    finally {
+        busy = false;
     }
 
 }

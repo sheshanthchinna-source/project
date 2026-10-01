@@ -169,6 +169,65 @@
 
         </section>
 
+         <!-- ================= SIGN LEARNING ================= -->
+          
+        <section class="learning-card">
+            <div>
+                <div class="feature-header">
+                    <div>
+                        <span class="feature-icon learning-icon">📖</span>
+                        <div class="feature-heading">
+                            <h2>Sign Learning</h2>
+                            <p>Learn common signs and practice your gestures</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="learning-tabs" id="learningTabs">
+                    <button class="learning-tab active" data-category="all">All</button>
+                </div>
+
+                <div class="sign-grid" id="signGrid">
+
+                    <button class="sign-card" data-word="HELLO" data-category="greetings">
+                        <div class="sign-emoji">👋</div>
+                        <strong>HELLO</strong>
+                    </button>
+
+                    <button class="sign-card" data-word="THANK YOU" data-category="common">
+                        <div class="sign-emoji">🤭</div>
+                        <strong>THANK YOU</strong>
+                    </button>
+
+                    <button class="sign-card" data-word="YES" data-category="basic">
+                        <div class="sign-emoji">👊</div>
+                        <strong>YES</strong>
+                    </button>
+
+                    <button class="sign-card" data-word="NO" data-category="basic">
+                        <div class="sign-emoji">✌️</div>
+                        <strong>NO</strong>
+                    </button>
+
+                    <button class="sign-card" data-word="GOOD" data-category="basic">
+                        <div class="sign-emoji">👌</div>
+                        <strong>GOOD</strong>
+                    </button>
+                   
+
+                </div>
+
+                <div class="practice-tip">
+                    💡 <strong>Practice Tip:</strong>
+                    Practice each gesture slowly and keep your hand clearly visible inside the camera frame.
+                </div>
+            </div>
+         
+        </section>
+
+
+
+    
 
         <section class="instructions">
 
@@ -256,6 +315,8 @@
     <script src="{{ url_for('static', filename='script.js') }}">
     </script>
 
+    <!-- Detection History + Sign Learning features -->
+    <script src="{{ url_for('static', filename='features.js') }}"></script>
 </body>
 
 </html>

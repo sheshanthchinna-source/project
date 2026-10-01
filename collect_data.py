@@ -10,7 +10,8 @@ WORDS = [
     "THANK_YOU",
     "YES",
     "NO",
-    "HELP"
+    "GOOD",
+    "LOVE"
 ]
 
 SEQUENCE_LENGTH = 30
@@ -100,13 +101,13 @@ for word in WORDS:
 
 
     # Record 40 sequences
-    for sequence in range(40):
+    for sequence in range(100):
 
         frames = []
 
         print(
             f"Recording {word}: "
-            f"{sequence + 1}/40"
+            f"{sequence + 1}/100"
         )
 
         start_time = time.time()

@@ -5,6 +5,8 @@ import mediapipe as mp
 import numpy as np
 import tensorflow as tf
 import base64
+import threading
+from collections import deque, Counter
 
 
 app = Flask(__name__)
@@ -22,16 +24,20 @@ WORDS = [
     "THANK YOU",
     "YES",
     "NO",
-    "HELP"
+    "GOOD",
+    "LOVE"
 ]
 
 SEQUENCE_LENGTH = 30
 
-CONFIDENCE_THRESHOLD = 0.85
+CONFIDENCE_THRESHOLD = 0.75   # 6 classes: 0.45 is barely above a guess
 
-STABLE_FRAMES = 5
+STABLE_FRAMES = 5            # word must win 5 predictions in a row-window
 
-MAX_NO_HAND_FRAMES = 5
+MAX_NO_HAND_FRAMES = 3
+PREDICT_EVERY = 3            # run the model every 3rd frame (faster)
+lock = threading.Lock()
+frame_counter = 0
 
 mp_hands = mp.solutions.hands
 
@@ -75,56 +81,33 @@ def extract_landmarks(frame):
     return landmarks
 
 def predict_word():
-
-    global prediction_history
     global last_word
 
-    input_data = np.array(
-        sequence,
-        dtype=np.float32
-    )
+    if len(sequence) != SEQUENCE_LENGTH:
+        return last_word, 0.0
 
-    input_data = np.expand_dims(
-        input_data,
-        axis=0
-    )
+    input_data = np.expand_dims(np.array(sequence, dtype=np.float32), axis=0)
+    # model(...) is much faster than model.predict(...) for a single sample
+    prediction = model(input_data, training=False).numpy()[0]
 
-    prediction = model.predict(
-        input_data,
-        verbose=0
-    )[0]
-
-    index = int(
-        np.argmax(prediction)
-    )
-
-    confidence = float(
-        prediction[index]
-    )
-
-    # Low confidence
-    if confidence < CONFIDENCE_THRESHOLD:
-
-        prediction_history.clear()
-
-        return "Unknown", confidence
-
+    index = int(np.argmax(prediction))
+    confidence = float(prediction[index])
     word = WORDS[index]
 
-    # Store recent predictions
-    prediction_history.append(word)
-
+    if confidence < CONFIDENCE_THRESHOLD:
+        prediction_history.append(None)
+    else:
+        prediction_history.append(word)
     if len(prediction_history) > STABLE_FRAMES:
-
         prediction_history.pop(0)
 
-    # Check if same prediction appears repeatedly
-    if (
-        len(prediction_history) == STABLE_FRAMES
-        and len(set(prediction_history)) == 1
-    ):
-
+    # Only accept a word when it is the SAME for all recent predictions.
+    # Otherwise keep showing the last confirmed word (never a random guess).
+    if (len(prediction_history) == STABLE_FRAMES
+            and len(set(prediction_history)) == 1
+            and prediction_history[0] is not None):
         last_word = word
+        return word, confidence
 
     return last_word, confidence
 
@@ -146,6 +129,7 @@ def predict():
     global no_hand_count
     global prediction_history
     global last_word
+    global frame_counter
 
     try:
 
@@ -188,6 +172,18 @@ def predict():
                 "error": "Invalid image"
             }), 400
 
+        frame = cv2.resize(frame, (320, 240))
+        with lock:
+            return handle_frame(frame)
+
+    except Exception as e:
+        print("Prediction error:", e)
+        return jsonify({"error": str(e)}), 500
+
+
+def handle_frame(frame):
+    global no_hand_count, last_word, frame_counter
+    if True:
         landmarks = extract_landmarks(
             frame
         )
@@ -196,6 +192,7 @@ def predict():
         if landmarks is None:
 
             no_hand_count += 1
+            prediction_history.clear()
 
             # Don't allow old movement to remain forever
             if no_hand_count >= MAX_NO_HAND_FRAMES:
@@ -248,6 +245,12 @@ def predict():
             })
 
 
+        frame_counter += 1
+        if frame_counter % PREDICT_EVERY != 0:
+            return jsonify({"word": last_word, "confidence": 0,
+                            "hand_detected": True, "frames": len(sequence),
+                            "skipped": True})
+
         word, confidence = predict_word()
 
 
@@ -267,24 +270,14 @@ def predict():
         })
 
 
-    except Exception as e:
-
-        print(
-            "Prediction error:",
-            e
-        )
-
-        return jsonify({
-
-            "error": str(e)
-
-        }), 500
 
 
 if __name__ == "__main__":
 
     app.run(
         debug=True,
+        use_reloader=False,  # avoid loading the model twice
+        threaded=False,
         host="127.0.0.1",
         port=5000
     )
