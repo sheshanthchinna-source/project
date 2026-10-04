@@ -15,12 +15,11 @@
 
 </head>
 
-
 <body>
 
     <header class="header">
 
-        <h1>🤟 Sign Language Word Detector</h1>
+        <h1>🤟 Sign Language <span class="color-text"> Word Detector </span></h1>
 
         <p>
             Real-Time Hand Gesture Recognition System
@@ -169,8 +168,6 @@
 
         </section>
 
-         <!-- ================= SIGN LEARNING ================= -->
-          
         <section class="learning-card">
             <div>
                 <div class="feature-header">
@@ -211,7 +208,12 @@
 
                     <button class="sign-card" data-word="GOOD" data-category="basic">
                         <div class="sign-emoji">👌</div>
-                        <strong>GOOD</strong>
+                        <strong>SUPER</strong>
+                    </button>
+
+                   <button class="sign-card" data-word="GOOD" data-category="basic">
+                        <div class="sign-emoji">🫰</div>
+                        <strong>LOVE</strong>
                     </button>
                    
 
@@ -224,10 +226,6 @@
             </div>
          
         </section>
-
-
-
-    
 
         <section class="instructions">
 
@@ -298,7 +296,6 @@
 
     </main>
 
-
     <footer>
 
         <p>
@@ -311,12 +308,9 @@
 
     </footer>
 
-
     <script src="{{ url_for('static', filename='script.js') }}">
     </script>
 
-    <!-- Detection History + Sign Learning features -->
-    <script src="{{ url_for('static', filename='features.js') }}"></script>
 </body>
 
 </html>

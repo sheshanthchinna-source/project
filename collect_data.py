@@ -4,7 +4,6 @@ import numpy as np
 import os
 import time
 
-# Words to train
 WORDS = [
     "HELLO",
     "THANK_YOU",

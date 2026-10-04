@@ -2,7 +2,7 @@ let stream = null;
 let predictionInterval = null;
 
 let detectedWord = "Unknown";
-let busy = false; // prevents overlapping requests (frames arriving out of order)
+let busy = false;
 
 
 const video =
@@ -43,7 +43,7 @@ async function startCamera() {
 
         video.onloadedmetadata = () => {
 
-            canvas.width = 320;   // small frames = faster upload + decode
+            canvas.width = 320;  
             canvas.height = 240;
 
 
@@ -209,7 +209,6 @@ async function sendFrame() {
 
 }
 
-
 function speakDetectedWord() {
 
     // Don't speak invalid results
@@ -228,39 +227,21 @@ function speakDetectedWord() {
         return;
 
     }
-
-
     // Stop previous speech
-
     window.speechSynthesis.cancel();
-
-
     // Create speech
-
     const speech =
         new SpeechSynthesisUtterance(
             detectedWord
         );
-
-
     speech.lang =
         "en-US";
-
-
     speech.rate =
         0.85;
-
-
     speech.pitch =
         1;
-
-
     speech.volume =
         1;
-
-
-    // Speak
-
     window.speechSynthesis.speak(
         speech
     );
@@ -282,10 +263,6 @@ function stopCamera() {
             null;
 
     }
-
-
-    // Stop camera tracks
-
     if (stream) {
 
         stream
@@ -303,28 +280,17 @@ function stopCamera() {
             null;
 
     }
-
-
     // Stop speech
-
     window.speechSynthesis.cancel();
-
-
     // Reset camera message
-
     document.getElementById(
         "cameraMessage"
     ).innerText =
         "Camera stopped";
-
-
-    // Reset hand status
-
     const handStatus =
         document.getElementById(
             "handStatus"
         );
-
 
     if (handStatus) {
 
@@ -334,8 +300,6 @@ function stopCamera() {
     }
 
 }
-
-
 
 function clearResult() {
 

@@ -30,12 +30,12 @@ WORDS = [
 
 SEQUENCE_LENGTH = 30
 
-CONFIDENCE_THRESHOLD = 0.75   # 6 classes: 0.45 is barely above a guess
+CONFIDENCE_THRESHOLD = 0.75
 
-STABLE_FRAMES = 5            # word must win 5 predictions in a row-window
+STABLE_FRAMES = 5
 
 MAX_NO_HAND_FRAMES = 3
-PREDICT_EVERY = 3            # run the model every 3rd frame (faster)
+PREDICT_EVERY = 3
 lock = threading.Lock()
 frame_counter = 0
 
@@ -269,14 +269,11 @@ def handle_frame(frame):
 
         })
 
-
-
-
 if __name__ == "__main__":
 
     app.run(
         debug=True,
-        use_reloader=False,  # avoid loading the model twice
+        use_reloader=False,
         threaded=False,
         host="127.0.0.1",
         port=5000

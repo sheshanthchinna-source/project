@@ -19,7 +19,7 @@ WORDS = [
 ]
 
 SEQUENCE_LENGTH = 30
-NUM_FEATURES = 63  # 21 hand landmarks x 3 coordinates
+NUM_FEATURES = 63
 
 X = []
 y = []
@@ -34,8 +34,6 @@ def pad_or_truncate(data, target_len):
         return np.vstack([data, padding])
     return data
 
-
-# ---------------- Load dataset ----------------
 
 for label, word in enumerate(WORDS):
 
@@ -72,9 +70,6 @@ if len(X) == 0:
     raise SystemExit("No training data found. Check your dataset folder.")
 
 
-# ---------------- Proper stratified train/val split ----------------
-# (validation_split in model.fit takes the LAST 20% before shuffling,
-#  which can leave whole classes out of validation)
 
 X_train, X_val, y_train, y_val = train_test_split(
     X,
@@ -115,7 +110,6 @@ model.compile(
 model.summary()
 
 
-# ---------------- Callbacks ----------------
 
 os.makedirs("model", exist_ok=True)
 
@@ -142,8 +136,6 @@ history = model.fit(
     callbacks=callbacks
 )
 
-
-# ---------------- Final evaluation ----------------
 
 val_loss, val_acc = model.evaluate(X_val, y_val, verbose=0)
 print(f"\nFinal validation accuracy: {val_acc * 100:.2f}%")
