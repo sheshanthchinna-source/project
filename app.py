@@ -1,178 +1,127 @@
 from flask import Flask, render_template, request, jsonify
-
 import cv2
 import mediapipe as mp
 import numpy as np
 import tensorflow as tf
 import base64
 import threading
-from collections import deque,Counter
-
+from collections import deque
 
 app = Flask(__name__)
 
+# ---------------- MODELS ----------------
+WORD_MODEL_PATH = "model/sign_model.keras"
+ALPHABET_MODEL_PATH = "model/alphabet_model.keras"
 
-MODEL_PATH = "model/sign_model.keras"
+word_model = tf.keras.models.load_model(WORD_MODEL_PATH, compile=False)
 
-model = tf.keras.models.load_model(
-    MODEL_PATH,
-    compile=False
-)
+try:
+    alphabet_model = tf.keras.models.load_model(ALPHABET_MODEL_PATH, compile=False)
+    ALPHABET_MODEL_READY = True
+except Exception as e:
+    print("Alphabet model not loaded:", e)
+    alphabet_model = None
+    ALPHABET_MODEL_READY = False
 
-WORDS = [
-    "HELLO",
-    "THANK YOU",
-    "YES",
-    "NO",
-    "GOOD",
-    "LOVE"
-]
+WORDS = ["HELLO", "THANK YOU", "YES", "NO", "GOOD", "LOVE"]
+ALPHABETS = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
 SEQUENCE_LENGTH = 30
-
 CONFIDENCE_THRESHOLD = 0.75
-
 STABLE_FRAMES = 5
-
 MAX_NO_HAND_FRAMES = 3
 PREDICT_EVERY = 3
+
 lock = threading.Lock()
 frame_counter = 0
+sequence = []
+no_hand_count = 0
+
+word_history = deque(maxlen=STABLE_FRAMES)
+alphabet_history = deque(maxlen=STABLE_FRAMES)
+last_word = "Unknown"
+last_alphabet = "Unknown"
 
 mp_hands = mp.solutions.hands
-
 hands = mp_hands.Hands(
     static_image_mode=False,
     max_num_hands=1,
     min_detection_confidence=0.6,
     min_tracking_confidence=0.6
 )
-sequence = []
 
-prediction_history = []
 
-last_word = "Unknown"
-
-no_hand_count = 0
 def extract_landmarks(frame):
-
-    rgb = cv2.cvtColor(
-        frame,
-        cv2.COLOR_BGR2RGB
-    )
-
+    rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     results = hands.process(rgb)
 
-    # No hand detected
     if not results.multi_hand_landmarks:
-
         return None
 
     hand = results.multi_hand_landmarks[0]
-
     landmarks = []
 
     for point in hand.landmark:
-
-        landmarks.append(point.x)
-        landmarks.append(point.y)
-        landmarks.append(point.z)
+        landmarks.extend([point.x, point.y, point.z])
 
     return landmarks
 
-def predict_word():
-    global last_word
 
-    if len(sequence) != SEQUENCE_LENGTH:
-        return last_word, 0.0
+def stable_prediction(model, labels, history, previous):
+    """Run prediction and accept it only after STABLE_FRAMES matching results."""
+    input_data = np.expand_dims(
+        np.array(sequence, dtype=np.float32), axis=0
+    )
 
-    input_data = np.expand_dims(np.array(sequence, dtype=np.float32), axis=0)
-    # model(...) is much faster than model.predict(...) for a single sample
     prediction = model(input_data, training=False).numpy()[0]
-
     index = int(np.argmax(prediction))
     confidence = float(prediction[index])
-    word = WORDS[index]
+    label = labels[index]
 
-    if confidence < CONFIDENCE_THRESHOLD:
-        prediction_history.append(None)
+    if confidence >= CONFIDENCE_THRESHOLD:
+        history.append(label)
     else:
-        prediction_history.append(word)
-    if len(prediction_history) > STABLE_FRAMES:
-        prediction_history.pop(0)
+        history.append(None)
 
-    # Only accept a word when it is the SAME for all recent predictions.
-    # Otherwise keep showing the last confirmed word (never a random guess).
-    if (len(prediction_history) == STABLE_FRAMES
-            and len(set(prediction_history)) == 1
-            and prediction_history[0] is not None):
-        last_word = word
-        return word, confidence
+    if (
+        len(history) == STABLE_FRAMES
+        and all(x is not None for x in history)
+        and len(set(history)) == 1
+    ):
+        return label, confidence
 
-    return last_word, confidence
+    return previous, confidence
+
 
 @app.route("/")
 def home():
+    return render_template("index.html")
+@app.route('/asl-alphabet')
+def asl_alphabet():
+    return render_template('asl-alphabet.html')
 
-    return render_template(
-        "index.html"
-    )
-
-
-@app.route(
-    "/predict",
-    methods=["POST"]
-)
+@app.route("/predict", methods=["POST"])
 def predict():
-
-    global sequence
-    global no_hand_count
-    global prediction_history
-    global last_word
-    global frame_counter
-
+    global sequence, no_hand_count, frame_counter
     try:
-
         data = request.get_json()
 
         if not data or "image" not in data:
-
-            return jsonify({
-                "error": "No image received"
-            }), 400
+            return jsonify({"error": "No image received"}), 400
 
         image_data = data["image"]
-
         if "," in image_data:
+            image_data = image_data.split(",", 1)[1]
 
-            image_data = image_data.split(
-                ",",
-                1
-            )[1]
-
-
-        image_bytes = base64.b64decode(
-            image_data
-        )
-
-        image_array = np.frombuffer(
-            image_bytes,
-            dtype=np.uint8
-        )
-
-        frame = cv2.imdecode(
-            image_array,
-            cv2.IMREAD_COLOR
-        )
-
+        image_bytes = base64.b64decode(image_data)
+        image_array = np.frombuffer(image_bytes, dtype=np.uint8)
+        frame = cv2.imdecode(image_array, cv2.IMREAD_COLOR)
 
         if frame is None:
-
-            return jsonify({
-                "error": "Invalid image"
-            }), 400
+            return jsonify({"error": "Invalid image"}), 400
 
         frame = cv2.resize(frame, (320, 240))
+
         with lock:
             return handle_frame(frame)
 
@@ -182,95 +131,86 @@ def predict():
 
 
 def handle_frame(frame):
-    global no_hand_count, last_word, frame_counter
-    if True:
-        landmarks = extract_landmarks(
-            frame
-        )
+    global no_hand_count, last_word, last_alphabet, frame_counter
 
+    landmarks = extract_landmarks(frame)
 
-        if landmarks is None:
+    if landmarks is None:
+        no_hand_count += 1
+        word_history.clear()
+        alphabet_history.clear()
 
-            no_hand_count += 1
-            prediction_history.clear()
-
-            # Don't allow old movement to remain forever
-            if no_hand_count >= MAX_NO_HAND_FRAMES:
-
-                sequence.clear()
-                prediction_history.clear()
-
-                last_word = "Unknown"
-
-
-            return jsonify({
-
-                "word": "No hand detected",
-
-                "confidence": 0,
-
-                "hand_detected": False,
-
-                "frames": len(sequence)
-
-            })
-
-        no_hand_count = 0
-
-
-        # Add valid landmarks only
-        sequence.append(
-            landmarks
-        )
-
-
-        # Keep only latest 30 frames
-        if len(sequence) > SEQUENCE_LENGTH:
-
-            sequence.pop(0)
-
-
-        if len(sequence) < SEQUENCE_LENGTH:
-
-            return jsonify({
-
-                "word": "Collecting movement...",
-
-                "confidence": 0,
-
-                "hand_detected": True,
-
-                "frames": len(sequence)
-
-            })
-
-
-        frame_counter += 1
-        if frame_counter % PREDICT_EVERY != 0:
-            return jsonify({"word": last_word, "confidence": 0,
-                            "hand_detected": True, "frames": len(sequence),
-                            "skipped": True})
-
-        word, confidence = predict_word()
-
+        if no_hand_count >= MAX_NO_HAND_FRAMES:
+            sequence.clear()
+            word_history.clear()
+            alphabet_history.clear()
+            last_word = "Unknown"
+            last_alphabet = "Unknown"
 
         return jsonify({
-
-            "word": word,
-
-            "confidence": round(
-                confidence,
-                3
-            ),
-
-            "hand_detected": True,
-
-            "frames": len(sequence)
-
+            "word": "No hand detected",
+            "alphabet": "No hand detected",
+            "confidence": 0,
+            "alphabet_confidence": 0,
+            "hand_detected": False,
+            "frames": len(sequence),
+            "alphabet_model_ready": ALPHABET_MODEL_READY
         })
 
-if __name__ == "__main__":
+    no_hand_count = 0
+    sequence.append(landmarks)
 
+    if len(sequence) > SEQUENCE_LENGTH:
+        sequence.pop(0)
+
+    if len(sequence) < SEQUENCE_LENGTH:
+        return jsonify({
+            "word": "Collecting movement...",
+            "alphabet": "Collecting...",
+            "confidence": 0,
+            "alphabet_confidence": 0,
+            "hand_detected": True,
+            "frames": len(sequence),
+            "alphabet_model_ready": ALPHABET_MODEL_READY
+        })
+
+    frame_counter += 1
+    if frame_counter % PREDICT_EVERY != 0:
+        return jsonify({
+            "word": last_word,
+            "alphabet": last_alphabet,
+            "confidence": 0,
+            "alphabet_confidence": 0,
+            "hand_detected": True,
+            "frames": len(sequence),
+            "skipped": True,
+            "alphabet_model_ready": ALPHABET_MODEL_READY
+        })
+
+    last_word, word_conf = stable_prediction(
+        word_model, WORDS, word_history, last_word
+    )
+
+    alphabet_conf = 0.0
+    if ALPHABET_MODEL_READY:
+        last_alphabet, alphabet_conf = stable_prediction(
+            alphabet_model, ALPHABETS, alphabet_history, last_alphabet
+        )
+    else:
+        last_alphabet = "Model not trained"
+
+    return jsonify({
+        "word": last_word,
+        "alphabet": last_alphabet,
+        "confidence": round(word_conf, 3),
+        "alphabet_confidence": round(alphabet_conf, 3),
+        "hand_detected": True,
+        "frames": len(sequence),
+        "alphabet_model_ready": ALPHABET_MODEL_READY
+    })
+
+
+if __name__ == "__main__":
     app.run(
         debug=True,
         use_reloader=False,
