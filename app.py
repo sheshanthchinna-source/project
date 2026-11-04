@@ -39,6 +39,8 @@ no_hand_count = 0
 
 word_history = deque(maxlen=STABLE_FRAMES)
 alphabet_history = deque(maxlen=STABLE_FRAMES)
+word_score_history = deque(maxlen=STABLE_FRAMES)
+alphabet_score_history = deque(maxlen=STABLE_FRAMES)
 last_word = "Unknown"
 last_alphabet = "Unknown"
 
@@ -67,15 +69,27 @@ def extract_landmarks(frame):
     return landmarks
 
 
-def stable_prediction(model, labels, history, previous):
-    """Run prediction and accept it only after STABLE_FRAMES matching results."""
+def stable_prediction(model, labels, history, score_history, previous):
+    """
+    Smooth model probabilities across recent predictions, then require a stable
+    label before changing the accepted result. Returns the accepted label and
+    smoothed confidence for that label.
+    """
     input_data = np.expand_dims(
         np.array(sequence, dtype=np.float32), axis=0
     )
 
-    prediction = model(input_data, training=False).numpy()[0]
-    index = int(np.argmax(prediction))
-    confidence = float(prediction[index])
+    scores = np.asarray(
+        model(input_data, training=False).numpy()[0],
+        dtype=np.float32
+    )
+
+    # Keep a rolling average of class probabilities to reduce frame-to-frame noise.
+    score_history.append(scores)
+    smoothed_scores = np.mean(np.stack(score_history, axis=0), axis=0)
+
+    index = int(np.argmax(smoothed_scores))
+    confidence = float(smoothed_scores[index])
     label = labels[index]
 
     if confidence >= CONFIDENCE_THRESHOLD:
@@ -83,13 +97,15 @@ def stable_prediction(model, labels, history, previous):
     else:
         history.append(None)
 
+    # Switch to a new label only when every recent valid result agrees.
     if (
         len(history) == STABLE_FRAMES
-        and all(x is not None for x in history)
+        and all(item is not None for item in history)
         and len(set(history)) == 1
     ):
         return label, confidence
 
+    # Preserve the last stable label while reporting smoothed confidence.
     return previous, confidence
 
 
@@ -139,11 +155,15 @@ def handle_frame(frame):
         no_hand_count += 1
         word_history.clear()
         alphabet_history.clear()
+        word_score_history.clear()
+        alphabet_score_history.clear()
 
         if no_hand_count >= MAX_NO_HAND_FRAMES:
             sequence.clear()
             word_history.clear()
             alphabet_history.clear()
+            word_score_history.clear()
+            alphabet_score_history.clear()
             last_word = "Unknown"
             last_alphabet = "Unknown"
 
@@ -188,13 +208,13 @@ def handle_frame(frame):
         })
 
     last_word, word_conf = stable_prediction(
-        word_model, WORDS, word_history, last_word
+        word_model, WORDS, word_history, word_score_history, last_word
     )
 
     alphabet_conf = 0.0
     if ALPHABET_MODEL_READY:
         last_alphabet, alphabet_conf = stable_prediction(
-            alphabet_model, ALPHABETS, alphabet_history, last_alphabet
+            alphabet_model, ALPHABETS, alphabet_history, alphabet_score_history, last_alphabet
         )
     else:
         last_alphabet = "Model not trained"

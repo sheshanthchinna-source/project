@@ -7,7 +7,7 @@ import time
 # Collect alphabet sequences A-Z for the alphabet LSTM.
 ALPHABETS = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 SEQUENCE_LENGTH = 30
-SAMPLES_PER_LETTER = 50
+SAMPLES_PER_LETTER = 60
 DATA_PATH = "dataset_alphabet"
 
 mp_hands = mp.solutions.hands
