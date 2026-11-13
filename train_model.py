@@ -108,7 +108,7 @@ def train_model(labels, dataset_path, output_path):
 
 
 # Keep the existing word model training.
-WORDS = ["HELLO", "THANK_YOU", "YES", "NO", "GOOD", "LOVE"]
+WORDS = ["HELLO", "THANK_YOU", "YES", "NO", "GOOD", "LOVE","HELP"]
 train_model(WORDS, "dataset", "model/sign_model.keras")
 
 # Alphabet model: collect A-Z first, then run this script.

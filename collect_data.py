@@ -5,12 +5,7 @@ import os
 import time
 
 WORDS = [
-    "HELLO",
-    "THANK_YOU",
-    "YES",
-    "NO",
-    "GOOD",
-    "LOVE"
+    "HELP"
 ]
 
 SEQUENCE_LENGTH = 30

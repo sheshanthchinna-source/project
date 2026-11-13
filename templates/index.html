@@ -37,9 +37,9 @@
         <h2 id="detectionLabel">Detected Result</h2>
 
         <div class="mode-box">
-            <label><input type="radio" name="detectMode" value="both" checked> Words</label>
+
+            <label><input type="radio" name="detectMode" value="word"> Words</label>
             <label><input type="radio" name="detectMode" value="alphabet"> Alphabet</label>
-            <label><input type="radio" name="detectMode" value="word"> Word</label>
         </div>
 
         <div id="word" class="word">Waiting...</div>
@@ -101,33 +101,41 @@
 
         <div class="sign-grid" id="signGrid">
             <button class="sign-card" data-word="HELLO" data-category="greetings">
-                <div class="sign-emoji">👋</div><strong>HELLO</strong>
+                <div class="sign-emoji">👋</div><strong>HELLO! HOW ARE YOU</strong>
             </button>
             <button class="sign-card" data-word="THANK YOU" data-category="common">
-                <div class="sign-emoji">🤭</div><strong>THANK YOU</strong>
+                <div class="sign-emoji">🤭</div><strong>THANK YOU FOR HELP</strong>
             </button>
             <button class="sign-card" data-word="YES" data-category="basic">
-                <div class="sign-emoji">👊</div><strong>YES</strong>
+                <div class="sign-emoji">👊</div><strong>YES,I'M DONE</strong>
             </button>
             <button class="sign-card" data-word="NO" data-category="basic">
-                <div class="sign-emoji">✌️</div><strong>NO</strong>
+                <div class="sign-emoji">✌️</div><strong>NO,I'M NOT INTERSTED</strong>
             </button>
             <button class="sign-card" data-word="GOOD" data-category="basic">
-                <div class="sign-emoji">👌</div><strong>GOOD</strong>
+                <div class="sign-emoji">👌</div><strong>LOOKING GOOD</strong>
             </button>
             <button class="sign-card" data-word="LOVE" data-category="basic">
-                <div class="sign-emoji">🫰</div><strong>LOVE</strong>
+                <div class="sign-emoji">🫰</div><strong>LOVE YOU</strong>
+            </button>
+             <button class="sign-card" data-word="LOVE" data-category="basic">
+                <div class="sign-emoji">👍</div><strong>PLEASE! HELP TO ME</strong>
             </button>
         </div>
             
         <div class="learning-tabs" id="learningTabs">
             <button class="learning-tab active" data-category="all">ALPHA-SIGNS</button>
         </div>
-        <h3>Click below click to learn alpha signs</h3>
-        <a class="learning-tab" href="{{ url_for('asl_alphabet') }}">
-           <strong> <span style="color: red;">CLICK HERE TO LEARN ASL Alphabet A–Z</span></strong>
-        </a>
-        </div>
+        <div class="alpha-section">
+
+    <h3>Click below to learn alpha signs</h3>
+
+    <a href="/asl-alphabet" class="alpha-link">
+        CLICK HERE TO LEARN ASL Alphabet A-Z
+        <span class="arrow">➜</span>
+    </a>
+
+</div>
 
         <div class="practice-tip">
             💡 <strong>Practice Tip:</strong>
@@ -147,8 +155,8 @@
     </section>
 </main>
 
-<footer>
-    <p>Sign Language Word & Alphabet Detector | Hand Gesture Recognition</p>
+<footer style="background:#fecdd3;">
+    <h><strong>Sign Language Word & Alphabet Detector | Hand Gesture Recognition</strong></h> <br>
 </footer>
 
 <script src="{{ url_for('static', filename='script.js') }}"></script>

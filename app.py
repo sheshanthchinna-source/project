@@ -23,7 +23,7 @@ except Exception as e:
     alphabet_model = None
     ALPHABET_MODEL_READY = False
 
-WORDS = ["HELLO", "THANK YOU", "YES", "NO", "GOOD", "LOVE"]
+WORDS = ["HELLO How Are You?", "THANK YOU FOR HELP!", "YES,I'M DONE", "NO,I'M NOT INTERSTED", "LOOKING GOOD", "LOVE YOU","PLEASE! HELP TO ME.."]
 ALPHABETS = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
 SEQUENCE_LENGTH = 30
@@ -232,9 +232,7 @@ def handle_frame(frame):
 
 if __name__ == "__main__":
     app.run(
-        debug=True,
-        use_reloader=False,
-        threaded=False,
-        host="127.0.0.1",
-        port=5000
+        host="0.0.0.0",
+        port=5000,
+        debug=False
     )

@@ -5,264 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dfafa50e-b842-40a7-b7d0-133802a5b2d0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collect_alphabet_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/collect_alphabet_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/0.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/0.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/1.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/1.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/10.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/10.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/11.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/11.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/12.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/12.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/13.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/13.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/14.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/14.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/15.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/15.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/16.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/16.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/17.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/17.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/18.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/18.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/19.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/19.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/2.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/2.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/20.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/20.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/21.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/21.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/22.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/22.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/23.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/23.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/24.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/24.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/25.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/25.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/26.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/26.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/27.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/27.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/28.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/28.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/29.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/29.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/3.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/3.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/30.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/30.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/31.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/31.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/32.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/32.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/33.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/33.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/34.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/34.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/35.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/35.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/36.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/36.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/37.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/37.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/38.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/38.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/39.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/39.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/4.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/4.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/40.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/40.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/41.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/41.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/42.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/42.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/43.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/43.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/44.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/44.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/45.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/45.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/46.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/46.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/47.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/47.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/48.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/48.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/49.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/49.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/5.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/5.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/6.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/6.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/7.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/7.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/8.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/8.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/A/9.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/A/9.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/0.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/0.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/1.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/1.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/10.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/10.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/11.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/11.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/12.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/12.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/13.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/13.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/14.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/14.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/15.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/15.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/16.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/16.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/17.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/17.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/18.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/18.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/19.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/19.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/2.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/2.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/20.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/20.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/21.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/21.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/22.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/22.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/23.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/23.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/24.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/24.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/25.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/25.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/26.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/26.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/27.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/27.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/28.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/28.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/29.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/29.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/3.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/3.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/30.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/30.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/31.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/31.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/32.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/32.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/33.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/33.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/34.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/34.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/35.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/35.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/36.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/36.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/37.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/37.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/38.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/38.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/39.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/39.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/4.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/4.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/40.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/40.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/41.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/41.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/42.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/42.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/43.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/43.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/44.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/44.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/45.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/45.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/46.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/46.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/47.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/47.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/48.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/48.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/49.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/49.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/5.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/5.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/6.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/6.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/7.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/7.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/8.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/8.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/B/9.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/B/9.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/0.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/0.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/1.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/1.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/10.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/10.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/11.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/11.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/12.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/12.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/13.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/13.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/14.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/14.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/15.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/15.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/16.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/16.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/17.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/17.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/18.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/18.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/19.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/19.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/2.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/2.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/20.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/20.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/21.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/21.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/22.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/22.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/23.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/23.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/24.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/24.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/25.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/25.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/26.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/26.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/27.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/27.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/28.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/28.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/29.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/29.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/3.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/3.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/30.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/30.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/31.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/31.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/32.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/32.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/33.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/33.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/34.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/34.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/35.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/35.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/36.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/36.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/37.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/37.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/38.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/38.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/39.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/39.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/4.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/4.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/40.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/40.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/41.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/41.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/42.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/42.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/43.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/43.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/44.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/44.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/45.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/45.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/46.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/46.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/47.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/47.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/48.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/48.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/49.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/49.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/5.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/5.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/6.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/6.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/7.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/7.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/8.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/8.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/C/9.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/C/9.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/0.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/0.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/1.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/1.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/10.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/10.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/11.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/11.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/12.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/12.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/13.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/13.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/14.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/14.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/15.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/15.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/16.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/16.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/17.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/17.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/18.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/18.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/19.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/19.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/2.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/2.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/20.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/20.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/21.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/21.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/22.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/22.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/23.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/23.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/24.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/24.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/25.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/25.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/26.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/26.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/27.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/27.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/28.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/28.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/29.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/29.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/3.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/3.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/30.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/30.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/31.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/31.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/32.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/32.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/33.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/33.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/34.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/34.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/35.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/35.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/36.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/36.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/37.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/37.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/38.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/38.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/39.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/39.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/4.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/4.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/40.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/40.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/41.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/41.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/42.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/42.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/43.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/43.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/44.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/44.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/45.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/45.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/46.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/46.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/47.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/47.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/48.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/48.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/49.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/49.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/5.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/5.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/6.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/6.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/7.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/7.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/8.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/8.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/D/9.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/D/9.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/0.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/0.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/1.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/1.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/10.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/10.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/11.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/11.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/12.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/12.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/13.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/13.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/14.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/14.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/15.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/15.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/16.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/16.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/17.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/17.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/18.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/18.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/19.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/19.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/2.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/2.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/20.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/20.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/21.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/21.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/22.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/22.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/23.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/23.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/24.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/24.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/25.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/25.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/26.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/26.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/27.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/27.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/28.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/28.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/29.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/29.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/3.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/3.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/30.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/30.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/31.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/31.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/32.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/32.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/33.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/33.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/34.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/34.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/35.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/35.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/36.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/36.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/37.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/37.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/38.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/38.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/39.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/39.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/4.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/4.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/40.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/40.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/41.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/41.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/42.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/42.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/43.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/43.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/44.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/44.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/45.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/45.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/46.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/46.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/47.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/47.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/48.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/48.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/49.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/49.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/5.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/5.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/6.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/6.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/7.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/7.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/8.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/8.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataset_alphabet/E/9.npy" beforeDir="false" afterPath="$PROJECT_DIR$/dataset_alphabet/E/9.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/collect_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/alphabet_model.keras" beforeDir="false" afterPath="$PROJECT_DIR$/model/alphabet_model.keras" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/sign_model.keras" beforeDir="false" afterPath="$PROJECT_DIR$/model/sign_model.keras" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requiredmoules.docx" beforeDir="false" afterPath="$PROJECT_DIR$/requiredmoules.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_model.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,6 +33,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/templates/index.html" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/train_model.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -321,7 +74,32 @@
       <recent name="D:\PythonProject\templates" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.app">
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.11 (project)" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="DEBUG_JUST_MY_CODE" value="false" />
+      <module name="" />
+      <option name="RUN_TOOL" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="project" type="PythonConfigurationType" factoryName="Python">
       <module name="project" />
       <option name="ENV_FILES" value="" />
@@ -391,6 +169,18 @@
       <workItem from="1793806808043" duration="2003000" />
       <workItem from="1793809809152" duration="782000" />
       <workItem from="1793810858173" duration="56000" />
+      <workItem from="1793858111860" duration="587000" />
+      <workItem from="1793859114369" duration="353000" />
+      <workItem from="1793893558159" duration="650000" />
+      <workItem from="1793894238244" duration="321000" />
+      <workItem from="1793894690694" duration="951000" />
+      <workItem from="1793896028789" duration="328000" />
+      <workItem from="1793896702783" duration="1235000" />
+      <workItem from="1793969032453" duration="770000" />
+      <workItem from="1793978524715" duration="781000" />
+      <workItem from="1794059698467" duration="825000" />
+      <workItem from="1794060561065" duration="149000" />
+      <workItem from="1794405259142" duration="10000" />
     </task>
     <servers />
   </component>
@@ -399,12 +189,15 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/collect_alphabet_data_py$train_model.coverage" NAME="train_model Coverage Results" MODIFIED="1793808939207" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/app_py$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1793810879316" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/collect_data_py$collect_data.coverage" NAME="collect_data Coverage Results" MODIFIED="1793969195318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/app_py$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1794060584288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/app_py$collect_alphabet_data.coverage" NAME="collect_alphabet_data Coverage Results" MODIFIED="1791655491873" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/train_model_py$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1791656111011" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/collect_data_py$train_model.coverage" NAME="train_model Coverage Results" MODIFIED="1793969576548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/collect_alphabet_data_py$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1793809023515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/app_py$app.coverage" NAME="app Coverage Results" MODIFIED="1793552296651" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/train_model_py$train_model.coverage" NAME="train_model Coverage Results" MODIFIED="1791656018852" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/collect_alphabet_data_py$collect_alphabet_data.coverage" NAME="collect_alphabet_data Coverage Results" MODIFIED="1793807424141" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/collect_data_py$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1793969716796" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

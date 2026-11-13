@@ -14,6 +14,7 @@ body{font-family:"Segoe UI",Arial,sans-serif;background:radial-gradient(circle a
 .container{width:min(94%,1400px);margin:34px auto 20px;display:grid;grid-template-columns:minmax(0,2fr) minmax(360px,1fr);gap:25px}
 .camera-card,.result-card,.instructions,.learning-card{background:var(--card);border:1px solid rgba(226,232,240,.9);border-radius:22px;padding:26px;box-shadow:var(--shadow);backdrop-filter:blur(10px)}
 .camera-card{border-top:4px solid var(--primary)}.result-card{border-top:4px solid var(--indigo)}
+
 .camera-card:hover,.result-card:hover,.instructions:hover,.learning-card:hover{box-shadow:var(--shadow-hover)}
 .section-title{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:20px}
 .section-title h2,.result-card>h2{color:#172554;font-size:22px;font-weight:750}.result-card>h2{margin-bottom:16px}
@@ -42,7 +43,49 @@ button:hover{transform:translateY(-2px)}
 .clear-btn{width:100%;margin-top:12px}
 .learning-card{grid-column:1/-1;border-top:4px solid #16a34a}.feature-heading h2{font-size:28px;margin-bottom:5px}.feature-heading p{color:#666}
 .learning-tabs{display:flex;gap:8px;overflow-x:auto;margin:16px 0}.learning-tab{padding:8px 15px;border-radius:9px;background:#f8fafc;color:#475569;border:1px solid #e2e8f0;font-size:12px}.learning-tab.active{background:linear-gradient(135deg,#2563eb,#4f46e5);color:white;border-color:transparent}
-.sign-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.sign-card{min-height:125px;padding:10px 7px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:white;color:#172554;border:1px solid #dbeafe;border-radius:14px}.sign-card:hover{border-color:#93c5fd;box-shadow:0 9px 20px rgba(37,99,235,.12)}.sign-emoji{font-size:43px}.sign-card strong{font-size:12px}
+.sign-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.sign-card{min-height:125px;padding:10px 7px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;background:white;color:#172554;border:1px solid #dbeafe;border-radius:14px}
+.sign-card:hover{border-color:#93c5fd;box-shadow:0 9px 20px rgba(37,99,235,.12)}.sign-emoji{font-size:43px}.sign-card strong{font-size:12px}
+.alpha-section {
+    margin-top: 25px;
+    padding: 10px;
+}
+
+.alpha-section h3 {
+    font-size: 22px;
+    color: #172554;
+    margin-bottom: 15px;
+}
+
+.alpha-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 30px;
+
+    border: 2px solid #2563eb;
+    border-radius: 18px;
+
+    color: #dc2626;
+    background: linear-gradient(135deg, #ffffff, #eff6ff);
+
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: underline;
+
+    transition: all 0.3s ease;
+}
+
+.alpha-link:hover {
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(37, 99, 235, 0.25);
+}
+
+.arrow {
+    font-size: 25px;
+    text-decoration: none;
+}
 .practice-tip{margin-top:15px;padding:12px 14px;border-radius:12px;background:#eff6ff;color:#1e40af;border:1px solid #dbeafe;font-size:12px}
 .asl-reference {
     text-align: center;
@@ -63,7 +106,7 @@ button:hover{transform:translateY(-2px)}
 
 .instructions{grid-column:1/-1;padding:30px}.instructions h2{text-align:center;margin-bottom:25px;padding:13px;color:#172554;background:linear-gradient(135deg,#eff6ff,#eef2ff);border:2px solid #2563eb;border-radius:13px;font-size:28px}
 .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}.step{min-height:135px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:#f8fafc;border:1px solid #e2e8f0;border-radius:16px;padding:20px 14px}.step span{display:flex;width:45px;height:45px;margin-bottom:13px;align-items:center;justify-content:center;background:linear-gradient(135deg,#2563eb,#4f46e5);color:white;border-radius:50%;font-size:18px;font-weight:800}.step p{color:#334155;font-size:15px;font-weight:650;line-height:1.45}
-footer{text-align:center;padding:22px 15px 30px;color:#64748b;font-size:14px}
+footer{text-align:center;padding:22px 15px 30px;color:black;font-size:14px}
 @media(max-width:1050px){.container{grid-template-columns:1fr}.sign-grid{grid-template-columns:repeat(4,1fr)}.steps{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.camera{height:360px}.sign-grid{grid-template-columns:repeat(3,1fr)}.steps{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.container{width:94%;margin-top:20px}.camera-card,.result-card,.instructions,.learning-card{padding:19px;border-radius:17px}.camera{height:280px}.camera-buttons{flex-direction:column}.camera-buttons button{width:100%}.sign-grid{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr}.instructions h2{font-size:22px}.sentence-buttons{grid-template-columns:1fr}}
