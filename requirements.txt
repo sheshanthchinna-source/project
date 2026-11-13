@@ -1,7 +1,6 @@
-
 Flask
-opencv-python
-mediapipe
-numpy
-tensorflow
 gunicorn
+tensorflow==2.15.1
+mediapipe==0.10.14
+numpy==1.26.4
+opencv-python-headless==4.10.0.84
