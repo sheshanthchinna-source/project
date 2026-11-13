@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dfafa50e-b842-40a7-b7d0-133802a5b2d0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collect_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/collect_data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/alphabet_model.keras" beforeDir="false" afterPath="$PROJECT_DIR$/model/alphabet_model.keras" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/sign_model.keras" beforeDir="false" afterPath="$PROJECT_DIR$/model/sign_model.keras" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requiredmoules.docx" beforeDir="false" afterPath="$PROJECT_DIR$/requiredmoules.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/train_model.py" afterDir="false" />
-    </list>
+    <list default="true" id="dfafa50e-b842-40a7-b7d0-133802a5b2d0" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
