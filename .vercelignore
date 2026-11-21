@@ -1,0 +1,10 @@
+dataset/
+dataset_alphabet/
+collect_data.py
+collect_alphabet_data.py
+train_model.py
+*.pptx
+__pycache__/
+.pytest_cache/
+.venv/
+venv/

@@ -26,6 +26,7 @@
                 Position your hand inside the camera
             </div>
         </div>
+        <p id="frameProgress" aria-live="polite">0 / 30 frames</p>
 
         <div class="camera-buttons">
             <button class="start-btn" onclick="startCamera()">▶ Start Camera</button>
@@ -159,6 +160,7 @@
     <h><strong>Sign Language Word & Alphabet Detector | Hand Gesture Recognition</strong></h> <br>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 <script src="{{ url_for('static', filename='features.js') }}"></script>
 </body>

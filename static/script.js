@@ -1,10 +1,18 @@
 let stream = null;
 let predictionInterval = null;
+let hands = null;
+let detectionBusy = false;
+let predictionBusy = false;
+let predictionState = null;
+let sequence = [];
+let noHandCount = 0;
+let frameCounter = 0;
+const SEQUENCE_LENGTH = 30;
+const MAX_NO_HAND_FRAMES = 3;
+const PREDICT_EVERY = 3;
 
 let detectedWord = "Unknown";
 let detectedAlphabet = "Unknown";
-
-let busy = false;
 
 // ================= SENTENCE =================
 let sentence = "";
@@ -30,9 +38,6 @@ const WORD_COOLDOWN = 1800;
 // ================= CAMERA =================
 const video = document.getElementById("video");
 const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-
-
 function getMode() {
     return document.querySelector(
         'input[name="detectMode"]:checked'
@@ -43,6 +48,7 @@ function getMode() {
 // ================= START CAMERA =================
 async function startCamera() {
     try {
+        if (stream) return;
 
         stream = await navigator.mediaDevices.getUserMedia({
             video: true,
@@ -55,15 +61,10 @@ async function startCamera() {
             "Camera started - Show your hand";
 
         video.onloadedmetadata = () => {
-
-            canvas.width = 320;
-            canvas.height = 240;
-
             if (predictionInterval) {
                 clearInterval(predictionInterval);
             }
-
-            predictionInterval = setInterval(sendFrame, 100);
+            predictionInterval = setInterval(processVideoFrame, 100);
         };
 
     } catch (error) {
@@ -77,196 +78,154 @@ async function startCamera() {
 }
 
 
-// ================= SEND FRAME =================
-async function sendFrame() {
+async function processVideoFrame() {
+    if (!stream || detectionBusy || video.readyState !== 4) return;
+    try {
+        if (!hands) {
+            hands = new Hands({
+                locateFile: file =>
+                    `https://cdn.jsdelivr.net/npm/@mediapipe/hands/${file}`
+            });
+            hands.setOptions({
+                maxNumHands: 1,
+                modelComplexity: 0,
+                minDetectionConfidence: 0.6,
+                minTrackingConfidence: 0.6
+            });
+            hands.onResults(handleHandResults);
+        }
 
-    if (
-        !stream ||
-        busy ||
-        video.readyState !== 4
-    ) {
+        detectionBusy = true;
+        await hands.send({ image: video });
+    } catch (error) {
+        console.error("Hand detection error:", error);
+    } finally {
+        detectionBusy = false;
+    }
+}
+
+function handleHandResults(results) {
+    if (!stream) return;
+
+    const detectedHands = results.multiHandLandmarks;
+    if (!detectedHands || detectedHands.length === 0) {
+        noHandCount++;
+        if (predictionState) {
+            predictionState.word_history = [];
+            predictionState.alphabet_history = [];
+            predictionState.word_score_history = [];
+            predictionState.alphabet_score_history = [];
+        }
+        showHandStatus(false);
+        document.getElementById("word").innerText = "No hand detected";
+        setConfidence(0);
+
+        if (noHandCount >= MAX_NO_HAND_FRAMES) {
+            sequence = [];
+            predictionState = null;
+            frameCounter = 0;
+        }
+        updateFrameProgress();
         return;
     }
 
-    ctx.drawImage(
-        video,
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
+    noHandCount = 0;
+    showHandStatus(true);
+    sequence.push(detectedHands[0].flatMap(point => [point.x, point.y, point.z]));
+    if (sequence.length > SEQUENCE_LENGTH) sequence.shift();
+    updateFrameProgress();
 
-    const imageData = canvas.toDataURL(
-        "image/jpeg",
-        0.7
-    );
+    if (sequence.length < SEQUENCE_LENGTH) {
+        document.getElementById("word").innerText =
+            `Collecting movement... (${sequence.length}/${SEQUENCE_LENGTH})`;
+        setConfidence(0);
+        return;
+    }
 
-    busy = true;
+    frameCounter++;
+    if (frameCounter % PREDICT_EVERY === 0) {
+        sendSequence();
+    } else if (detectedWord === "Unknown") {
+        document.getElementById("word").innerText = "Analyzing movement...";
+    }
+}
 
+function updateFrameProgress() {
+    const progress = document.getElementById("frameProgress");
+    if (progress) progress.innerText = `${sequence.length} / ${SEQUENCE_LENGTH} frames`;
+}
+
+function showHandStatus(detected) {
+    const handStatus = document.getElementById("handStatus");
+    if (handStatus) {
+        handStatus.innerText = detected ? "🟢 Hand detected" : "🔴 No hand detected";
+    }
+}
+
+function setConfidence(confidence) {
+    document.getElementById("confidence").innerText = `${confidence.toFixed(1)}%`;
+    document.getElementById("confidenceBar").style.width =
+        `${Math.min(confidence, 100)}%`;
+}
+
+// ================= SEND LANDMARK SEQUENCE =================
+async function sendSequence() {
+    if (predictionBusy) return;
+    predictionBusy = true;
     try {
-
         const response = await fetch("/predict", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-                image: imageData
+                sequence,
+                state: predictionState
             })
         });
-
         const result = await response.json();
-
-        if (result.error || result.skipped) {
+        if (!response.ok || result.error) {
+            console.error("Prediction error:", result.error || response.statusText);
             return;
         }
-
-
-        // ================= GET PREDICTIONS =================
-
-        detectedWord =
-            result.word || "Unknown";
-
-        detectedAlphabet =
-            result.alphabet || "Unknown";
-
-
-        const mode = getMode();
-
-
-        // ================= DISPLAY RESULT =================
-
-        let displayPrediction = "Waiting...";
-
-        if (mode === "alphabet") {
-
-            displayPrediction = detectedAlphabet;
-
-        } else if (mode === "word") {
-
-            displayPrediction = detectedWord;
-
-        } else {
-
-            // BOTH MODE
-            if (
-                detectedWord !== "Unknown" &&
-                detectedWord !== ""
-            ) {
-                displayPrediction = detectedWord;
-            } else {
-                displayPrediction = detectedAlphabet;
-            }
-        }
-
-
-        document.getElementById("word").innerText =
-            displayPrediction;
-
-
-        // ================= CONFIDENCE =================
-
-        let confidence = 0;
-
-        if (mode === "alphabet") {
-
-            confidence =
-                (result.alphabet_confidence || 0) * 100;
-
-        } else {
-
-            confidence =
-                (result.confidence || 0) * 100;
-        }
-
-
-        document.getElementById("confidence").innerText =
-            confidence.toFixed(1) + "%";
-
-
-        document.getElementById("confidenceBar").style.width =
-            Math.min(confidence, 100) + "%";
-
-
-        // ================= HAND STATUS =================
-
-        const handStatus =
-            document.getElementById("handStatus");
-
-        if (handStatus) {
-
-            handStatus.innerText =
-                result.hand_detected
-                    ? "🟢 Hand detected"
-                    : "🔴 No hand detected";
-        }
-
-
-        // ================= SENTENCE BUILDER =================
-
-        if (
-            mode === "alphabet" &&
-            result.hand_detected
-        ) {
-
-            processAlphabet(
-                detectedAlphabet,
-                result.alphabet_confidence || 0
-            );
-
-        } else if (
-            mode === "word" &&
-            result.hand_detected
-        ) {
-
-            processWord(
-                detectedWord,
-                result.confidence || 0
-            );
-
-        } else if (
-            mode === "both" &&
-            result.hand_detected
-        ) {
-
-            /*
-             * In BOTH mode:
-             * First try word detection.
-             * If no valid word is available,
-             * use alphabet detection.
-             */
-
-            if (
-                detectedWord &&
-                detectedWord !== "Unknown" &&
-                detectedWord !== "No hand detected"
-            ) {
-
-                processWord(
-                    detectedWord,
-                    result.confidence || 0
-                );
-
-            } else {
-
-                processAlphabet(
-                    detectedAlphabet,
-                    result.alphabet_confidence || 0
-                );
-            }
-        }
-
-
+        if (result.state) predictionState = result.state;
+        updatePrediction(result);
     } catch (error) {
-
-        console.error(
-            "Prediction error:",
-            error
-        );
-
+        console.error("Prediction error:", error);
     } finally {
+        predictionBusy = false;
+    }
+}
 
-        busy = false;
+function updatePrediction(result) {
+    detectedWord = result.word || "Unknown";
+    detectedAlphabet = result.alphabet || "Unknown";
+
+    const mode = getMode();
+    let displayPrediction = "Waiting...";
+    if (mode === "alphabet") {
+        displayPrediction = detectedAlphabet;
+    } else if (mode === "word") {
+        displayPrediction = detectedWord;
+    } else if (detectedWord !== "Unknown" && detectedWord !== "") {
+        displayPrediction = detectedWord;
+    } else {
+        displayPrediction = detectedAlphabet;
+    }
+    document.getElementById("word").innerText = displayPrediction;
+
+    const confidence = mode === "alphabet"
+        ? (result.alphabet_confidence || 0) * 100
+        : (result.confidence || 0) * 100;
+    setConfidence(confidence);
+    showHandStatus(result.hand_detected);
+
+    if (mode === "alphabet") {
+        processAlphabet(detectedAlphabet, result.alphabet_confidence || 0);
+    } else if (mode === "word") {
+        processWord(detectedWord, result.confidence || 0);
+    } else if (detectedWord && detectedWord !== "Unknown") {
+        processWord(detectedWord, result.confidence || 0);
+    } else {
+        processAlphabet(detectedAlphabet, result.alphabet_confidence || 0);
     }
 }
 
@@ -566,6 +525,11 @@ function stopCamera() {
         video.srcObject = null;
     }
 
+    sequence = [];
+    predictionState = null;
+    noHandCount = 0;
+    frameCounter = 0;
+    updateFrameProgress();
 
     window.speechSynthesis.cancel();
 

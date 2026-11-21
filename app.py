@@ -1,240 +1,252 @@
-from flask import Flask, render_template, request, jsonify
-import cv2
-import mediapipe as mp
-import numpy as np
-import tensorflow as tf
-import base64
+import os
 import threading
-from collections import deque
+from pathlib import Path
+
+import numpy as np
+from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
+app.config["MAX_CONTENT_LENGTH"] = 256 * 1024
 
-# ---------------- MODELS ----------------
-WORD_MODEL_PATH = "model/sign_model.keras"
-ALPHABET_MODEL_PATH = "model/alphabet_model.keras"
+BASE_DIR = Path(__file__).resolve().parent
+WORD_MODEL_PATH = BASE_DIR / "model" / "sign_model.keras"
+ALPHABET_MODEL_PATH = BASE_DIR / "model" / "alphabet_model.keras"
 
-word_model = tf.keras.models.load_model(WORD_MODEL_PATH, compile=False)
-
-try:
-    alphabet_model = tf.keras.models.load_model(ALPHABET_MODEL_PATH, compile=False)
-    ALPHABET_MODEL_READY = True
-except Exception as e:
-    print("Alphabet model not loaded:", e)
-    alphabet_model = None
-    ALPHABET_MODEL_READY = False
-
-WORDS = ["HELLO How Are You?", "THANK YOU FOR HELP!", "YES,I'M DONE", "NO,I'M NOT INTERSTED", "LOOKING GOOD", "LOVE YOU","PLEASE! HELP TO ME.."]
+WORDS = [
+    "HELLO How Are You?",
+    "THANK YOU FOR HELP!",
+    "YES,I'M DONE",
+    "NO,I'M NOT INTERSTED",
+    "LOOKING GOOD",
+    "LOVE YOU",
+    "PLEASE! HELP TO ME..",
+]
 ALPHABETS = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
 SEQUENCE_LENGTH = 30
+NUM_FEATURES = 63
 CONFIDENCE_THRESHOLD = 0.75
 STABLE_FRAMES = 5
-MAX_NO_HAND_FRAMES = 3
-PREDICT_EVERY = 3
 
-lock = threading.Lock()
-frame_counter = 0
-sequence = []
-no_hand_count = 0
-
-word_history = deque(maxlen=STABLE_FRAMES)
-alphabet_history = deque(maxlen=STABLE_FRAMES)
-word_score_history = deque(maxlen=STABLE_FRAMES)
-alphabet_score_history = deque(maxlen=STABLE_FRAMES)
-last_word = "Unknown"
-last_alphabet = "Unknown"
-
-mp_hands = mp.solutions.hands
-hands = mp_hands.Hands(
-    static_image_mode=False,
-    max_num_hands=1,
-    min_detection_confidence=0.6,
-    min_tracking_confidence=0.6
-)
+word_model = None
+alphabet_model = None
+ALPHABET_MODEL_READY = False
+_model_lock = threading.Lock()
 
 
-def extract_landmarks(frame):
-    rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-    results = hands.process(rgb)
-
-    if not results.multi_hand_landmarks:
-        return None
-
-    hand = results.multi_hand_landmarks[0]
-    landmarks = []
-
-    for point in hand.landmark:
-        landmarks.extend([point.x, point.y, point.z])
-
-    return landmarks
+def default_state():
+    return {
+        "word_history": [],
+        "alphabet_history": [],
+        "word_score_history": [],
+        "alphabet_score_history": [],
+        "last_word": "Unknown",
+        "last_alphabet": "Unknown",
+    }
 
 
-def stable_prediction(model, labels, history, score_history, previous):
-    """
-    Smooth model probabilities across recent predictions, then require a stable
-    label before changing the accepted result. Returns the accepted label and
-    smoothed confidence for that label.
-    """
-    input_data = np.expand_dims(
-        np.array(sequence, dtype=np.float32), axis=0
-    )
+def parse_client_state(value):
+    state = default_state()
+    if value is None:
+        return state
+    if not isinstance(value, dict):
+        raise ValueError("state must be an object")
 
+    labels = {
+        "word_history": WORDS,
+        "alphabet_history": ALPHABETS,
+    }
+    for key, allowed_labels in labels.items():
+        history = value.get(key, [])
+        if (
+            not isinstance(history, list)
+            or len(history) > STABLE_FRAMES
+            or any(item is not None and item not in allowed_labels for item in history)
+        ):
+            raise ValueError(f"state.{key} must contain at most {STABLE_FRAMES} valid labels")
+        state[key] = history
+
+    class_counts = {
+        "word_score_history": len(WORDS),
+        "alphabet_score_history": len(ALPHABETS),
+    }
+    for key, class_count in class_counts.items():
+        history = value.get(key, [])
+        if not isinstance(history, list) or len(history) > STABLE_FRAMES:
+            raise ValueError(f"state.{key} must contain at most {STABLE_FRAMES} score arrays")
+        for scores in history:
+            if (
+                not isinstance(scores, list)
+                or len(scores) != class_count
+                or any(
+                    isinstance(score, bool)
+                    or not isinstance(score, (int, float))
+                    or not np.isfinite(score)
+                    or score < 0
+                    or score > 1
+                    for score in scores
+                )
+            ):
+                raise ValueError(f"state.{key} contains an invalid score array")
+        state[key] = history
+
+    for key, allowed_labels in (
+        ("last_word", WORDS + ["Unknown"]),
+        ("last_alphabet", ALPHABETS + ["Unknown", "Model not trained"]),
+    ):
+        previous = value.get(key, "Unknown")
+        if not isinstance(previous, str) or previous not in allowed_labels:
+            raise ValueError(f"state.{key} is invalid")
+        state[key] = previous
+
+    return state
+
+
+def validate_sequence(value):
+    if not isinstance(value, list) or len(value) != SEQUENCE_LENGTH:
+        raise ValueError(f"sequence must contain exactly {SEQUENCE_LENGTH} frames")
+
+    for frame in value:
+        if not isinstance(frame, list) or len(frame) != NUM_FEATURES:
+            raise ValueError(f"each sequence frame must contain exactly {NUM_FEATURES} values")
+        if any(
+            isinstance(coordinate, bool)
+            or not isinstance(coordinate, (int, float))
+            or not np.isfinite(coordinate)
+            for coordinate in frame
+        ):
+            raise ValueError("sequence coordinates must be finite numbers")
+
+    return np.asarray(value, dtype=np.float32)
+
+
+def load_models():
+    global word_model, alphabet_model, ALPHABET_MODEL_READY
+    if word_model is not None:
+        return
+
+    with _model_lock:
+        if word_model is not None:
+            return
+
+        import tensorflow as tf
+
+        word_model = tf.keras.models.load_model(WORD_MODEL_PATH, compile=False)
+        try:
+            alphabet_model = tf.keras.models.load_model(
+                ALPHABET_MODEL_PATH,
+                compile=False,
+            )
+            ALPHABET_MODEL_READY = True
+        except Exception as exc:
+            print("Alphabet model not loaded:", exc)
+            alphabet_model = None
+            ALPHABET_MODEL_READY = False
+
+
+def stable_prediction(model, labels, sequence, history, score_history, previous):
     scores = np.asarray(
-        model(input_data, training=False).numpy()[0],
-        dtype=np.float32
+        model(np.expand_dims(sequence, axis=0), training=False).numpy()[0],
+        dtype=np.float32,
     )
-
-    # Keep a rolling average of class probabilities to reduce frame-to-frame noise.
-    score_history.append(scores)
-    smoothed_scores = np.mean(np.stack(score_history, axis=0), axis=0)
+    score_history.append(scores.tolist())
+    score_history = score_history[-STABLE_FRAMES:]
+    smoothed_scores = np.mean(np.asarray(score_history, dtype=np.float32), axis=0)
 
     index = int(np.argmax(smoothed_scores))
     confidence = float(smoothed_scores[index])
     label = labels[index]
+    history.append(label if confidence >= CONFIDENCE_THRESHOLD else None)
+    history = history[-STABLE_FRAMES:]
 
-    if confidence >= CONFIDENCE_THRESHOLD:
-        history.append(label)
-    else:
-        history.append(None)
-
-    # Switch to a new label only when every recent valid result agrees.
     if (
         len(history) == STABLE_FRAMES
         and all(item is not None for item in history)
         and len(set(history)) == 1
     ):
-        return label, confidence
-
-    # Preserve the last stable label while reporting smoothed confidence.
-    return previous, confidence
+        return label, confidence, history, score_history
+    return previous, confidence, history, score_history
 
 
 @app.route("/")
 def home():
     return render_template("index.html")
-@app.route('/asl-alphabet')
+
+
+@app.route("/asl-alphabet")
 def asl_alphabet():
-    return render_template('asl-alphabet.html')
+    return render_template("asl-alphabet.html")
+
 
 @app.route("/predict", methods=["POST"])
 def predict():
-    global sequence, no_hand_count, frame_counter
+    data = request.get_json(silent=True)
+    if not isinstance(data, dict):
+        return jsonify({"error": "Request body must be a JSON object"}), 400
+    if "sequence" not in data:
+        return jsonify({"error": "No sequence received"}), 400
+
     try:
-        data = request.get_json()
+        sequence = validate_sequence(data["sequence"])
+        state = parse_client_state(data.get("state"))
+    except (TypeError, ValueError, OverflowError) as exc:
+        return jsonify({"error": str(exc)}), 400
 
-        if not data or "image" not in data:
-            return jsonify({"error": "No image received"}), 400
+    try:
+        load_models()
+        with _model_lock:
+            (
+                state["last_word"],
+                word_confidence,
+                state["word_history"],
+                state["word_score_history"],
+            ) = stable_prediction(
+                word_model,
+                WORDS,
+                sequence,
+                state["word_history"],
+                state["word_score_history"],
+                state["last_word"],
+            )
 
-        image_data = data["image"]
-        if "," in image_data:
-            image_data = image_data.split(",", 1)[1]
-
-        image_bytes = base64.b64decode(image_data)
-        image_array = np.frombuffer(image_bytes, dtype=np.uint8)
-        frame = cv2.imdecode(image_array, cv2.IMREAD_COLOR)
-
-        if frame is None:
-            return jsonify({"error": "Invalid image"}), 400
-
-        frame = cv2.resize(frame, (320, 240))
-
-        with lock:
-            return handle_frame(frame)
-
-    except Exception as e:
-        print("Prediction error:", e)
-        return jsonify({"error": str(e)}), 500
-
-
-def handle_frame(frame):
-    global no_hand_count, last_word, last_alphabet, frame_counter
-
-    landmarks = extract_landmarks(frame)
-
-    if landmarks is None:
-        no_hand_count += 1
-        word_history.clear()
-        alphabet_history.clear()
-        word_score_history.clear()
-        alphabet_score_history.clear()
-
-        if no_hand_count >= MAX_NO_HAND_FRAMES:
-            sequence.clear()
-            word_history.clear()
-            alphabet_history.clear()
-            word_score_history.clear()
-            alphabet_score_history.clear()
-            last_word = "Unknown"
-            last_alphabet = "Unknown"
+            alphabet_confidence = 0.0
+            if ALPHABET_MODEL_READY:
+                (
+                    state["last_alphabet"],
+                    alphabet_confidence,
+                    state["alphabet_history"],
+                    state["alphabet_score_history"],
+                ) = stable_prediction(
+                    alphabet_model,
+                    ALPHABETS,
+                    sequence,
+                    state["alphabet_history"],
+                    state["alphabet_score_history"],
+                    state["last_alphabet"],
+                )
+            else:
+                state["last_alphabet"] = "Model not trained"
 
         return jsonify({
-            "word": "No hand detected",
-            "alphabet": "No hand detected",
-            "confidence": 0,
-            "alphabet_confidence": 0,
-            "hand_detected": False,
-            "frames": len(sequence),
-            "alphabet_model_ready": ALPHABET_MODEL_READY
-        })
-
-    no_hand_count = 0
-    sequence.append(landmarks)
-
-    if len(sequence) > SEQUENCE_LENGTH:
-        sequence.pop(0)
-
-    if len(sequence) < SEQUENCE_LENGTH:
-        return jsonify({
-            "word": "Collecting movement...",
-            "alphabet": "Collecting...",
-            "confidence": 0,
-            "alphabet_confidence": 0,
+            "word": state["last_word"],
+            "alphabet": state["last_alphabet"],
+            "confidence": round(word_confidence, 3),
+            "alphabet_confidence": round(alphabet_confidence, 3),
             "hand_detected": True,
-            "frames": len(sequence),
-            "alphabet_model_ready": ALPHABET_MODEL_READY
+            "frames": SEQUENCE_LENGTH,
+            "alphabet_model_ready": ALPHABET_MODEL_READY,
+            "state": state,
         })
-
-    frame_counter += 1
-    if frame_counter % PREDICT_EVERY != 0:
-        return jsonify({
-            "word": last_word,
-            "alphabet": last_alphabet,
-            "confidence": 0,
-            "alphabet_confidence": 0,
-            "hand_detected": True,
-            "frames": len(sequence),
-            "skipped": True,
-            "alphabet_model_ready": ALPHABET_MODEL_READY
-        })
-
-    last_word, word_conf = stable_prediction(
-        word_model, WORDS, word_history, word_score_history, last_word
-    )
-
-    alphabet_conf = 0.0
-    if ALPHABET_MODEL_READY:
-        last_alphabet, alphabet_conf = stable_prediction(
-            alphabet_model, ALPHABETS, alphabet_history, alphabet_score_history, last_alphabet
-        )
-    else:
-        last_alphabet = "Model not trained"
-
-    return jsonify({
-        "word": last_word,
-        "alphabet": last_alphabet,
-        "confidence": round(word_conf, 3),
-        "alphabet_confidence": round(alphabet_conf, 3),
-        "hand_detected": True,
-        "frames": len(sequence),
-        "alphabet_model_ready": ALPHABET_MODEL_READY
-    })
+    except Exception as exc:
+        app.logger.exception("Prediction failed")
+        return jsonify({"error": str(exc)}), 500
 
 
 if __name__ == "__main__":
     app.run(
-        debug=True,
-        use_reloader=False,
-        threaded=False,
         host="127.0.0.1",
-        port=5000
+        port=int(os.environ.get("PORT", "5000")),
+        debug=False,
+        use_reloader=False,
+        threaded=True,
     )
