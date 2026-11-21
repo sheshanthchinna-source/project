@@ -9,8 +9,8 @@ app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 256 * 1024
 
 BASE_DIR = Path(__file__).resolve().parent
-WORD_MODEL_PATH = BASE_DIR / "model" / "sign_model.keras"
-ALPHABET_MODEL_PATH = BASE_DIR / "model" / "alphabet_model.keras"
+WORD_MODEL_PATH = BASE_DIR / "model" / "sign_model.tflite"
+ALPHABET_MODEL_PATH = BASE_DIR / "model" / "alphabet_model.tflite"
 
 WORDS = [
     "HELLO How Are You?",
@@ -32,6 +32,21 @@ word_model = None
 alphabet_model = None
 ALPHABET_MODEL_READY = False
 _model_lock = threading.Lock()
+
+
+class TFLiteModel:
+    def __init__(self, path):
+        from ai_edge_litert.interpreter import Interpreter
+
+        self.interpreter = Interpreter(model_path=str(path), num_threads=2)
+        self.interpreter.allocate_tensors()
+        self.input_index = self.interpreter.get_input_details()[0]["index"]
+        self.output_index = self.interpreter.get_output_details()[0]["index"]
+
+    def predict(self, input_data):
+        self.interpreter.set_tensor(self.input_index, input_data)
+        self.interpreter.invoke()
+        return self.interpreter.get_tensor(self.output_index)
 
 
 def default_state():
@@ -129,14 +144,9 @@ def load_models():
         if word_model is not None:
             return
 
-        import tensorflow as tf
-
-        word_model = tf.keras.models.load_model(WORD_MODEL_PATH, compile=False)
+        word_model = TFLiteModel(WORD_MODEL_PATH)
         try:
-            alphabet_model = tf.keras.models.load_model(
-                ALPHABET_MODEL_PATH,
-                compile=False,
-            )
+            alphabet_model = TFLiteModel(ALPHABET_MODEL_PATH)
             ALPHABET_MODEL_READY = True
         except Exception as exc:
             print("Alphabet model not loaded:", exc)
@@ -146,7 +156,7 @@ def load_models():
 
 def stable_prediction(model, labels, sequence, history, score_history, previous):
     scores = np.asarray(
-        model(np.expand_dims(sequence, axis=0), training=False).numpy()[0],
+        model.predict(np.expand_dims(sequence, axis=0))[0],
         dtype=np.float32,
     )
     score_history.append(scores.tolist())
