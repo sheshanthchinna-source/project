@@ -5,12 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Language Word & Alphabet Detector</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link rel="icon" type="image/png"
+          href="{{ url_for('static', filename='logo.jpg') }}">
 </head>
 <body>
-<header class="header">
-    <h1>🤟 Sign <span style="color:rgb(239, 28, 71) ;">Language Detector</span> </h1>
-    <p>Real-Time Hand Gesture • Word • Alphabet • Sentence Recognition</p>
-</header>
+<header class="main-header">
+
+    <!-- Center Logo and Project Name -->
+    <div class="header-brand">
+
+        <div class="logo">
+            🤟
+        </div>
+
+        <div class="brand">
+            <h1>Sign <span>Language Detector</span></h1>
+
+            <p>
+                Real-Time Hand Gesture • Word • Alphabet • Sentence Recognition
+            </p>
+        </div>
+
+    </div>
+
+    <!-- Right Navigation -->
+    <nav class="navbar">
+
+        <a href="{{ url_for('about') }}">About Project</a>
+
+
+    </nav>
+
+</header>>
 
 <main class="container">
     <section class="camera-card">
@@ -26,7 +52,6 @@
                 Position your hand inside the camera
             </div>
         </div>
-        <p id="frameProgress" aria-live="polite">0 / 30 frames</p>
 
         <div class="camera-buttons">
             <button class="start-btn" onclick="startCamera()">▶ Start Camera</button>
@@ -158,9 +183,12 @@
 
 <footer style="background:#fecdd3;">
     <h><strong>Sign Language Word & Alphabet Detector | Hand Gesture Recognition</strong></h> <br>
+
+    <p>Let's make communication easier for everyone!</p>
+
+    <p>© 2026 Sign Language Detector. All Rights Reserved.</p>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
 <script src="{{ url_for('static', filename='script.js') }}"></script>
 <script src="{{ url_for('static', filename='features.js') }}"></script>
 </body>

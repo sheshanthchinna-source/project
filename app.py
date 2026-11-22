@@ -188,6 +188,10 @@ def asl_alphabet():
     return render_template("asl-alphabet.html")
 
 
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
 @app.route("/predict", methods=["POST"])
 def predict():
     data = request.get_json(silent=True)
