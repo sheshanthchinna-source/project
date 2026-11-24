@@ -7,6 +7,7 @@ from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 256 * 1024
+app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 BASE_DIR = Path(__file__).resolve().parent
 WORD_MODEL_PATH = BASE_DIR / "model" / "sign_model.tflite"
@@ -20,6 +21,9 @@ WORDS = [
     "LOOKING GOOD",
     "LOVE YOU",
     "PLEASE! HELP TO ME..",
+    "I HAVE A QUESTION",
+    "I WANT TO TALK",
+    "ROCK ON"
 ]
 ALPHABETS = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 
@@ -44,7 +48,7 @@ class TFLiteModel:
             try:
                 from tflite_runtime.interpreter import Interpreter
             except ImportError:
-                from tensorflow.lite import Interpreter
+                from tensorflow.lite.python.interpreter import Interpreter
 
         self.interpreter = Interpreter(model_path=str(path), num_threads=2)
         self.interpreter.allocate_tensors()

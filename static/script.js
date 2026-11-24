@@ -3,6 +3,7 @@ let predictionInterval = null;
 let hands = null;
 let detectionBusy = false;
 let predictionBusy = false;
+let predictionUnavailable = false;
 let predictionState = null;
 let sequence = [];
 let noHandCount = 0;
@@ -41,7 +42,7 @@ const canvas = document.getElementById("canvas");
 function getMode() {
     return document.querySelector(
         'input[name="detectMode"]:checked'
-    )?.value || "both";
+    )?.value || "word";
 }
 
 
@@ -145,7 +146,7 @@ function handleHandResults(results) {
     frameCounter++;
     if (frameCounter % PREDICT_EVERY === 0) {
         sendSequence();
-    } else if (detectedWord === "Unknown") {
+    } else if (detectedWord === "Unknown" && !predictionUnavailable) {
         document.getElementById("word").innerText = "Analyzing movement...";
     }
 }
@@ -184,12 +185,19 @@ async function sendSequence() {
         const result = await response.json();
         if (!response.ok || result.error) {
             console.error("Prediction error:", result.error || response.statusText);
+            predictionUnavailable = true;
+            document.getElementById("word").innerText = "Prediction unavailable";
+            setConfidence(0);
             return;
         }
+        predictionUnavailable = false;
         if (result.state) predictionState = result.state;
         updatePrediction(result);
     } catch (error) {
         console.error("Prediction error:", error);
+        predictionUnavailable = true;
+        document.getElementById("word").innerText = "Prediction unavailable";
+        setConfidence(0);
     } finally {
         predictionBusy = false;
     }
@@ -527,6 +535,7 @@ function stopCamera() {
 
     sequence = [];
     predictionState = null;
+    predictionUnavailable = false;
     noHandCount = 0;
     frameCounter = 0;
     updateFrameProgress();
@@ -558,6 +567,7 @@ function clearResult() {
 
     detectedWord = "Unknown";
     detectedAlphabet = "Unknown";
+    predictionUnavailable = false;
 
 
     window.speechSynthesis.cancel();

@@ -5,7 +5,9 @@ import os
 import time
 
 WORDS = [
-    "HELP"
+    "want to talk",
+    "rock on",
+    "question"
 ]
 
 SEQUENCE_LENGTH = 30

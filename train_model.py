@@ -5,12 +5,14 @@ from tensorflow.keras.layers import LSTM, Dense, Dropout
 from tensorflow.keras.utils import to_categorical
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 from sklearn.model_selection import train_test_split
+from convert_models import convert_model
 
 SEQUENCE_LENGTH = 30
 NUM_FEATURES = 63
 
 def load_dataset(labels, folder_name):
     X, y = [], []
+    sample_counts = [0] * len(labels)
 
     for label, name in enumerate(labels):
         folder = os.path.join(folder_name, name)
@@ -38,11 +40,21 @@ def load_dataset(labels, folder_name):
                 X.append(data)
                 y.append(label)
                 count += 1
+        sample_counts[label] = count
 
         print(f"{name}: {count} samples")
 
     if not X:
         raise SystemExit(f"No training data found in {folder_name}")
+
+    insufficient_labels = [
+        name for name, count in zip(labels, sample_counts) if count < 2
+    ]
+    if insufficient_labels:
+        raise ValueError(
+            "Each class needs at least 2 valid samples; missing or insufficient: "
+            + ", ".join(insufficient_labels)
+        )
 
     return np.asarray(X, dtype=np.float32), np.asarray(y)
 
@@ -107,10 +119,38 @@ def train_model(labels, dataset_path, output_path):
     print("Saved:", output_path)
 
 
-# Keep the existing word model training.
-WORDS = ["HELLO", "THANK_YOU", "YES", "NO", "GOOD", "LOVE","HELP"]
+# Dataset folder names; app.py maps these class indices to display phrases.
+WORDS = [
+    "HELLO",
+    "THANK_YOU",
+    "YES",
+    "NO",
+    "GOOD",
+    "LOVE",
+    "HELP",
+    "QUESTION",
+    "WANT TO TALK",
+    "ROCK ON",
+]
 train_model(WORDS, "dataset", "model/sign_model.keras")
+convert_model("sign_model", len(WORDS))
 
 # Alphabet model: collect A-Z first, then run this script.
 ALPHABETS = list("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-train_model(ALPHABETS, "dataset_alphabet", "model/alphabet_model.keras")
+missing_alphabets = [
+    letter
+    for letter in ALPHABETS
+    if not os.path.isdir(os.path.join("dataset_alphabet", letter))
+    or len([
+        file for file in os.listdir(os.path.join("dataset_alphabet", letter))
+        if file.endswith(".npy")
+    ]) < 2
+]
+if missing_alphabets:
+    print(
+        "Skipping alphabet training; collect at least 2 samples for: "
+        + ", ".join(missing_alphabets)
+    )
+else:
+    train_model(ALPHABETS, "dataset_alphabet", "model/alphabet_model.keras")
+    convert_model("alphabet_model", len(ALPHABETS))

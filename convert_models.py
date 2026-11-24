@@ -87,5 +87,5 @@ def convert_model(name, class_count):
 
 
 if __name__ == "__main__":
-    convert_model("sign_model", 7)
+    convert_model("sign_model", 10)
     convert_model("alphabet_model", 26)
